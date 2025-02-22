@@ -1,6 +1,10 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", getHumanChoiceByButton("#id"));
+});
 
 function playGame(){
     let computerChoice = getComputerChoice();
@@ -91,6 +95,17 @@ function getHumanChoice(){
         case 3: choice = "Scissors"; break;
         default: choice = "Rock"; console.log("Not a valid number; weapon defaulted to Rock -- good luck!"); break;
        }
+    return choice;
+}
+
+function getHumanChoiceByButton(buttonChoice){
+    let choice;
+    switch(buttonChoice){
+        case "rock": choice = "Rock"; break;
+        case "paper": choice = "Paper"; break;
+        case "scissors": choice = "Scissors"; break;
+    }
+    console.log(choice);
     return choice;
 }
 
